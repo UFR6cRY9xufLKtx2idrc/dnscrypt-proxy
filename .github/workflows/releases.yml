@@ -1,3 +1,5 @@
+name: GitHub CI
+
 on:
   push:
     paths:
@@ -17,7 +19,9 @@ on:
       - ".github/workflows/releases.yml"
   workflow_dispatch:
 
-name: GitHub CI
+permissions:
+  id-token: write
+  contents: write
 
 jobs:
   build:
