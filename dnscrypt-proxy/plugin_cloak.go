@@ -146,12 +146,6 @@ func (plugin *PluginCloak) Eval(pluginsState *PluginsState, msg *dns.Msg) error 
 		plugin.RUnlock()
 		return nil
 	}
-	if question.Qtype != dns.TypeA && question.Qtype != dns.TypeAAAA && question.Qtype != dns.TypePTR {
-		plugin.RUnlock()
-		pluginsState.action = PluginsActionReject
-		pluginsState.returnCode = PluginsReturnCodeCloak
-		return nil
-	}
 	cloakedName := xcloakedName.(*CloakedName)
 	ttl, expired := plugin.ttl, false
 	if cloakedName.lastUpdate != nil {
