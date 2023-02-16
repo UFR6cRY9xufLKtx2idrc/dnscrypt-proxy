@@ -2,6 +2,10 @@ name: ShiftLeft Scan
 
 on: push
 
+permissions:
+  id-token: write
+  contents: write
+
 jobs:
   Scan-Build:
     runs-on: ubuntu-latest
