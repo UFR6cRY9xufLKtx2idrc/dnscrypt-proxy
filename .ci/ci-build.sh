@@ -14,7 +14,7 @@ ln ../windows/* win32/
 zip -9 -r dnscrypt-proxy-win32-${PACKAGE_VERSION:-dev}.zip win32
 
 go clean
-env GOOS=windows GOARCH=amd64 go build -mod vendor -ldflags="-s -w"
+env GOOS=windows GOARCH=amd64 GOAMD64=v3 go build -mod vendor -ldflags="-s -w"
 mkdir win64
 ln dnscrypt-proxy.exe win64/
 cp ../LICENSE example-dnscrypt-proxy.toml localhost.pem example-*.txt win64/
